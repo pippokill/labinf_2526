@@ -60,7 +60,7 @@ int main()
             int i = 0;
             for (i = 0; i < np; i++)
             {
-                if (strcmp(codice, prodotti[i].codice)==0)
+                if (strcmp(codice, prodotti[i].codice) == 0)
                 {
                     printf("Prodotto trovato: %s, %s, %d, %f\n", prodotti[i].nome, prodotti[i].categoria, prodotti[i].quantita, prodotti[i].prezzo);
                     break;
@@ -81,10 +81,10 @@ int main()
             float tot = 0;
             for (i = 0; i < np; i++)
             {
-                if (strcmp(categoria, prodotti[i].categoria)==0)
+                if (strcmp(categoria, prodotti[i].categoria) == 0)
                 {
                     printf("Prodotto: %s, %d, %f\n", prodotti[i].nome, prodotti[i].quantita, prodotti[i].prezzo);
-                    tot += prodotti[i].prezzo;
+                    tot += prodotti[i].prezzo * prodotti[i].quantita;
                 }
             }
             printf("Prezzo totale: %f", tot);
@@ -98,14 +98,21 @@ int main()
             int i = 0;
             for (i = 0; i < np; i++)
             {
-                if (strcmp(codice, prodotti[i].codice)==0)
+                if (strcmp(codice, prodotti[i].codice) == 0)
                 {
                     printf("Prodotto trovato: %s, %s, %d, %f\n", prodotti[i].nome, prodotti[i].categoria, prodotti[i].quantita, prodotti[i].prezzo);
                     int vq = 0;
                     printf("Inserisci variazione quantità: ");
                     scanf("%d", &vq);
-                    prodotti[i].quantita += vq;
-                    printf("Variazione prodotto: %s, %s, %d, %f\n", prodotti[i].nome, prodotti[i].categoria, prodotti[i].quantita, prodotti[i].prezzo);
+                    if (vq < 0 && (prodotti[i].quantita + vq) < 0)
+                    {
+                        printf("Quantità non disponibile!");
+                    }
+                    else if (vq != 0)
+                    {
+                        prodotti[i].quantita += vq;
+                        printf("Variazione prodotto: %s, %s, %d, %f\n", prodotti[i].nome, prodotti[i].categoria, prodotti[i].quantita, prodotti[i].prezzo);
+                    }
                     break;
                 }
             }
