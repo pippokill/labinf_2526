@@ -11,8 +11,8 @@ int main()
     {
         totale = somma(totale, i);
         doppioTotale = somma(doppioTotale, i) * 2;
-        printf("Totale:%d\n", totale);
-        printf("Doppio Totale:%d\n", doppioTotale);
+        printf("Totale: %d\n", totale);
+        printf("Doppio Totale: %d\n", doppioTotale);
     }
 }
 
