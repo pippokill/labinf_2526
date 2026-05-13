@@ -18,8 +18,10 @@ int somma(int a, int b)
 /**
 * @brief Prodotto tra due numeri
 * @param a 
-* @param b 
-* @return Pre-cond: Nessuna, Post-cond: a*b
+* @param b
+* @pre Nessuna
+* @post a*b
+* @return prodotto a*b
 */
 int prodotto(int a, int b)
 {
